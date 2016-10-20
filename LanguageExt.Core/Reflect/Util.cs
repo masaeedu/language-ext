@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using static LanguageExt.Prelude;
 
 namespace LanguageExt.Reflect
 {
@@ -19,7 +20,7 @@ namespace LanguageExt.Reflect
                 .Where(x => x.GetParameters().Length == 1)
                 .First();
 #if COREFX
-            return fun((T x) => (NEWTYPE)Activator.CreateInstance(typeof(NEWTYPE), new object[1] { x }));
+            return fun((A x) => (NEWTYPE)Activator.CreateInstance(typeof(NEWTYPE), new object[1] { x }));
 #else
             var ctorParams = ctorInfo.GetParameters();
 
