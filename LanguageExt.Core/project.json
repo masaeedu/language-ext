@@ -35,14 +35,16 @@
     "System.Reactive.Core": "3.0.0-*",
     "System.Reactive.Interfaces": "3.0.0-*",
     "System.Reactive.PlatformServices": "3.0.0-*",
-    "System.Reactive.Linq": "3.0.0-*"
+    "System.Reactive.Linq": "3.0.0-*",
+    "System.ValueTuple": "4.0.0-*"
   },
   "frameworks": {
     "net4.5": {
     },
-    "netstandard1.3": {
+    "netstandard1.6": {
       "buildOptions": { "define": [ "COREFX" ] },
       "dependencies": {
+        "System.Reflection": "4.1.0-*",
         "System.Diagnostics.Contracts": "4.0.1",
         "System.Collections.Concurrent": "4.0.12",
         "System.Linq.Queryable": "4.0.1"

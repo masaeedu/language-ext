@@ -43,7 +43,7 @@
   "frameworks": {
     "net4.5": {
     },
-    "netstandard1.3": {
+    "netstandard1.6": {
       "buildOptions": { "define": [ "COREFX" ] },
       "dependencies": { }
     }
