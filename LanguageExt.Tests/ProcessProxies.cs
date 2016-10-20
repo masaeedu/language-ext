@@ -57,6 +57,7 @@ namespace LanguageExt.Tests
 
     public class ProcessProxies
     {
+#if !NETCOREAPP1_0
         [Fact]
         public void ProxyTest1()
         {
@@ -120,5 +121,6 @@ namespace LanguageExt.Tests
                 Assert.True(proxy.TestOption(123) == 123);
             }
         }
+#endif
     }
 }
