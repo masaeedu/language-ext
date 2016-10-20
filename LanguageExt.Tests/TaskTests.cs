@@ -10,11 +10,19 @@ using LanguageExt.Trans;
 using System.Net;
 using System.Collections.Generic;
 using System.Net.Http;
+using Xunit.Abstractions;
 
 namespace LanguageExtTests
 {
     public class TaskTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public TaskTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void TaskLINQTest1()
         {
@@ -87,7 +95,7 @@ namespace LanguageExtTests
         public void UrlTest()
         {
             // Iterates all lines of content
-            getURLContent("http://www.google.com").IterT(x => Console.WriteLine(x));
+            getURLContent("http://www.google.com").IterT(x => _output.WriteLine(x));
 
             // Counts the number of lines
             int numberOfLines = getURLContent("http://www.google.com").CountT();

@@ -2,12 +2,20 @@
 using LanguageExt;
 using static LanguageExt.Prelude;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace LanguageExtTests
 {
     
     public class NonNullTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public NonNullTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void ValueCastTest1()
         {
@@ -76,7 +84,7 @@ namespace LanguageExtTests
 
         public void Greet(Some<string> arg)
         {
-            Console.WriteLine(arg);
+            _output.WriteLine(arg);
         }
 
         [Fact]
@@ -94,7 +102,7 @@ namespace LanguageExtTests
             var obj = new SomeClass();
 
             obj.SomeOtherValue = "123";
-            Console.WriteLine(obj.SomeOtherValue);
+            _output.WriteLine(obj.SomeOtherValue);
             Assert.True(obj.SomeValue == "Hello");
             Assert.True(obj.SomeOtherValue.IsSome);
             Greet(obj.SomeOtherValue);
@@ -106,8 +114,8 @@ namespace LanguageExtTests
             var obj = new EitherClass();
 
             match(obj.EitherValue,
-                Right: r => Console.WriteLine(r),
-                Left: l => Console.WriteLine(l)
+                Right: r => _output.WriteLine(r.ToString()),
+                Left: l => _output.WriteLine(l)
             );
 
             Assert.Throws(
@@ -115,8 +123,8 @@ namespace LanguageExtTests
                 () => {
 
                     match(obj.EitherOtherValue,
-                        Right: r => Console.WriteLine(r),
-                        Left: l => Console.WriteLine(l)
+                        Right: r => _output.WriteLine(r.ToString()),
+                        Left: l => _output.WriteLine(l)
                     );
                 }
             );
