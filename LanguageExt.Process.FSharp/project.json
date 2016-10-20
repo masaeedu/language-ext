@@ -52,17 +52,12 @@
         }
     },
     "frameworks": {
-        "net45": {
+        "net4.5": {
             "dependencies": {
                 "FSharp.Core": "4.0.0.1"
             }
         },
-        "net46": {
-            "dependencies": {
-                "FSharp.Core": "4.0.0.1"
-            }
-        },
-        "netstandard16": {
+        "netstandard1.6": {
             "dependencies": {
                 "Microsoft.FSharp.Core.netcore": "1.0.0-*"
             }

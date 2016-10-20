@@ -38,6 +38,7 @@
       "version": "1.9.4",
       "target": "project"
     },
+    "NETStandard.Library": "1.6.0",
     "System.Reactive.Core": "3.0.0-*",
     "System.Reactive.Interfaces": "3.0.0-*",
     "System.Reactive.PlatformServices": "3.0.0-*",
@@ -45,7 +46,7 @@
     "Newtonsoft.Json": "9.0.1"
   },
   "frameworks": {
-    "net45": {
+    "net4.5": {
       "frameworkAssemblies": {
         "System.Web": "4.0.0.0"
       },
@@ -53,23 +54,10 @@
         "FSharp.Core": "4.0.0.1"
       }
     },
-    "net46": {
-      "frameworkAssemblies": {
-        "System.Core": "4.0.0.0",
-        "System.Web": "4.0.0.0"
-      },
-      "dependencies": {
-        "FSharp.Core": "4.0.0.1"
-      }
-    },
-    "netstandard16": {
+    "netstandard1.6": {
       "buildOptions": { "define": [ "COREFX" ] },
       "dependencies": {
         "Microsoft.FSharp.Core.netcore": "1.0.0-*",
-        "System.Diagnostics.Contracts": "4.0.1",
-        "System.Security.Cryptography.Algorithms": "4.2.0",
-        "System.Collections": "4.0.11",
-        "System.Linq.Queryable": "4.0.1",
         "System.Linq.Parallel": "4.0.1"
       }
     }

@@ -34,23 +34,18 @@
     "LanguageExt.Core": {
       "version": "1.9.4",
       "target": "project"
-    }
+    },
+    "NETStandard.Library": "1.6.0"
   },
   "frameworks": {
-    "net45": {
+    "net4.5": {
       "dependencies": {
         "FSharp.Core": "4.0.0.1"
       }
     },
-    "net46": {
+    "netstandard1.6": {
       "dependencies": {
-        "FSharp.Core": "4.0.0.1"
-      }
-    },
-    "netstandard16": {
-      "dependencies": {
-        "Microsoft.FSharp.Core.netcore": "1.0.0-*",
-        "System.Collections": "4.0.11"
+        "Microsoft.FSharp.Core.netcore": "1.0.0-*"
       }
     }
   }

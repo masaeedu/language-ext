@@ -20,6 +20,7 @@
         }
     },
     "dependencies": {
+        "NETStandard.Library": "1.6.0",
         "LanguageExt.Core": {
             "version": "1.9.4",
             "target": "project"
@@ -32,42 +33,34 @@
             "version": "1.9.4",
             "target": "project"
         },
-        "LanguageExt.Process.FSharp": {
-            "version": "1.9.4",
-            "target": "project"
-        },
         "LanguageExt.Process.Redis": {
             "version": "1.9.4",
             "target": "project"
         },
-        "LanguageExt.FSharp": {
-            "version": "1.9.4",
-            "target": "project"
-        },
-        "LanguageExt.ProcessJS": {
-            "version": "1.9.4",
-            "target": "project"
-        },
         "Newtonsoft.Json": "9.0.1",
-        "System.Runtime": "4.0.0",
-        "System.Threading.Tasks": "4.0.0",
         "System.Reactive.Core": "3.0.0-*",
         "System.Reactive.Interfaces": "3.0.0-*",
         "System.Reactive.PlatformServices": "3.0.0-*",
         "System.Reactive.Linq": "3.0.0-*",
         "StackExchange.Redis": "1.1.604-alpha",
-        "FSharp.Core": "4.0.0.1",
         "xunit": "2.2.0-*",
-        "xunit.assert": "2.2.0-*",
-        "xunit.runners": "2.0.0-*",
-        "xunit.extensibility.execution": "2.2.0-*"
+        "dotnet-test-xunit": "2.2.0-*"
     },
-    "commands": {
-        "test": "xunit.runner.aspnet"
-    },
+    "testRunner": "xunit",
     "frameworks": {
-        "net45": {
+        "netcoreapp1.0": {
             "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0"
+                },
+                "Microsoft.FSharp.Core.netcore": "1.0.0-*"
+            }
+        },
+        "net4.5.1": {
+            "dependencies": {
+                "Microsoft.NETCore.Platforms": "1.0.1",
+                "FSharp.Core": "4.0.0.1"
             }
         }
     }

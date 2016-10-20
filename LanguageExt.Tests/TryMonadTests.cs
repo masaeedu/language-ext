@@ -6,12 +6,21 @@ using System.Collections.Generic;
 using static LanguageExt.Prelude;
 using System;
 using System.Net;
+using System.Net.Http;
+using Xunit.Abstractions;
 
 namespace LanguageExtTests
 {
 
     public class TryOptionMonadTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public TryOptionMonadTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void TryOddNumber1()
         {
@@ -154,11 +163,11 @@ namespace LanguageExtTests
         Try<Uri> parseUri(string uri) => Try(() =>
             new Uri(uri));
 
-        Try<WebClient> getClient() => Try(() =>
-            new WebClient());
+        Try<HttpClient> getClient() => Try(() =>
+            new HttpClient());
 
-        Try<string> getContent(Uri uri, WebClient client) => Try(() =>
-            client.DownloadString(uri));
+        Try<string> getContent(Uri uri, HttpClient client) => Try(() =>
+            client.GetStringAsync(uri).Result);
 
         Try<Lst<string>> getLines(string text) => Try(() =>
             text.Split('\n').Freeze());
@@ -176,7 +185,7 @@ namespace LanguageExtTests
         public void UrlTest()
         {
             // Iterates all lines of content
-            getURLContent("http://www.google.com").IterT(x => Console.WriteLine(x));
+            getURLContent("http://www.google.com").IterT(x => _output.WriteLine(x));
 
             // Counts the number of lines
             int numberOfLines = getURLContent("http://www.google.com").CountT();
