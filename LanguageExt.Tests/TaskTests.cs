@@ -9,7 +9,6 @@ using LanguageExt;
 using LanguageExt.Trans;
 using System.Net;
 using System.Collections.Generic;
-using System.Net.Http;
 using Xunit.Abstractions;
 
 namespace LanguageExtTests
@@ -73,11 +72,11 @@ namespace LanguageExtTests
         Task<Uri> parseUri(string uri) => 
             new Uri(uri).AsTask();
 
-        Task<HttpClient> getClient() =>
-            Task.FromResult(new HttpClient());
+        Task<WebClient> getClient() =>
+            Task.FromResult(new WebClient());
 
-        Task<string> getContent(Uri uri, HttpClient client) =>
-            client.GetStringAsync(uri);
+        Task<string> getContent(Uri uri, WebClient client) =>
+            client.DownloadStringTaskAsync(uri);
 
         Task<Lst<string>> getLines(string text) =>
             Task.FromResult(text.Split('\n').Freeze());

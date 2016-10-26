@@ -6,7 +6,6 @@ using static LanguageExt.Prelude;
 using LanguageExt.Trans;
 using System;
 using System.Net;
-using System.Net.Http;
 using Xunit.Abstractions;
 
 namespace LanguageExtTests
@@ -163,11 +162,11 @@ namespace LanguageExtTests
         Try<Uri> parseUri(string uri) => () =>
             new Uri(uri);
 
-        Try<HttpClient> getClient() => () =>
-            new HttpClient();
+        Try<WebClient> getClient() => () =>
+            new WebClient();
 
-        Try<string> getContent(Uri uri, HttpClient client) => () =>
-            client.GetStringAsync(uri).Result;
+        Try<string> getContent(Uri uri, WebClient client) => () =>
+            client.DownloadString(uri);
 
         Try<Lst<string>> getLines(string text) => () =>
             text.Split('\n').Freeze();
